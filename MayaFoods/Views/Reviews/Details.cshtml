@@ -1,0 +1,17 @@
+﻿@model MayaFoods.Models.Review
+
+<html>
+<head>
+    <title>Maya's Specialty Foods - Review Details</title>
+</head>
+
+<body>
+    <h2>Product Details</h2>
+    <hr />
+    @Html.DisplayNameFor(model => model.Author): @Html.DisplayFor(model => model.Author)
+    @Html.DisplayNameFor(model => model.ContentBody): @Html.DisplayFor(model => model.ContentBody)
+    @Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)
+
+    <p>@Html.ActionLink("Back to Products List", "Index")</p>>
+</body>
+</html>

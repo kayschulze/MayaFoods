@@ -1,0 +1,36 @@
+﻿@model MayaFoods.Models.Review
+
+@{
+    ViewData["Title"] = "Review - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>Edit</h2>
+    <hr />
+
+    <h4>Edit this Experience: @Html.DisplayFor(model => model.Name)</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Author)
+        @Html.EditorFor(model => model.Author)
+
+        @Html.LabelFor(model => model.ContentBody)
+        @Html.EditorFor(model => model.ContentBody)
+
+        @Html.LabelFor(model => model.Rating)
+        @Html.EditorFor(model => model.Rating)
+
+        @Html.LabelFor(model => model.ProductId)
+        @Html.EditorFor(model => model.ProductId)
+
+        <input type="submit" value="Save" class="btn btn-success" />
+    }
+}
+else
+{
+    <h2>I'm sorry, but you don't have access to this function.</h2>
+}
+
+@Html.ActionLink("Back to Products List", "Index")

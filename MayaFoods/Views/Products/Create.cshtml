@@ -5,21 +5,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create a New Product</h2>
-<hr />
-
-@using (Html.BeginForm())
+@if (User.Identity.IsAuthenticated)
 {
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+    <h2>Create a New Product</h2>
+    <hr />
 
-    @Html.LabelFor(model => model.Origincountry)
-    @Html.EditorFor(model => model.Origincountry)
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
 
-    @Html.LabelFor(model => model.Cost)
-    @Html.EditorFor(model => model.Cost)
+        @Html.LabelFor(model => model.Origincountry)
+        @Html.EditorFor(model => model.Origincountry)
 
-    <input type="submit" value="Create" class="btn btn-success" />
+        @Html.LabelFor(model => model.Cost)
+        @Html.EditorFor(model => model.Cost)
+
+        <input type="submit" value="Create" class="btn btn-success" />
+    }
+}
+else
+{
+    <h2>I'm sorry, but you don't have access to this function.</h2>
 }
 
 @Html.ActionLink("Back to Products List", "Index")
