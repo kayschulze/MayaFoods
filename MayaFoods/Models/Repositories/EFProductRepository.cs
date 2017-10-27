@@ -5,13 +5,13 @@ namespace MayaFoods.Models
 {
     public class EFProductRepository : IProductRepository
     {
-        MayaFoodsContext db = new MayaFoodsContext();
+        MayaAdminDbContext db = new MayaAdminDbContext();
 
-        public EFProductRepository(MayaFoodsContext connection = null)
+        public EFProductRepository(MayaAdminDbContext connection = null)
         {
             if (connection == null)
             {
-                this.db = new MayaFoodsContext();
+                this.db = new MayaAdminDbContext();
             }
             else
             {

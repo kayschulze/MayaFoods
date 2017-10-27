@@ -1,10 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace MayaFoods.Models
 {
-    public class MayaFoodsContext : DbContext
+    public class MayaAdminDbContext : IdentityDbContext<AdminUser>
     {
-        public MayaFoodsContext()
+       
+
+        public MayaAdminDbContext()
         {
 
         }
@@ -14,10 +17,10 @@ namespace MayaFoods.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySql(@"Server=localhost;Port=3306;database=mayaspecialtyfoodsmigrations;uid=root;pwd=root;");
+            options.UseMySql(@"Server=localhost;Port=3306;database=mayafoods;uid=root;pwd=root;");
         }
 
-        public MayaFoodsContext(DbContextOptions<MayaFoodsContext> options)
+        public MayaAdminDbContext(DbContextOptions<MayaAdminDbContext> options)
             : base(options)
         {
 
@@ -28,4 +31,4 @@ namespace MayaFoods.Models
             base.OnModelCreating(builder);
         }
     }
-}
+} 

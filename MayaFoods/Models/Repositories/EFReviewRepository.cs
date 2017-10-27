@@ -5,7 +5,7 @@ namespace MayaFoods.Models
 {
     public class EFReviewRepository : IReviewRepository
     {
-        MayaFoodsContext db = new MayaFoodsContext();
+        MayaAdminDbContext db = new MayaAdminDbContext();
 
         public IQueryable<Review> Reviews
         { get { return db.Reviews; } }
