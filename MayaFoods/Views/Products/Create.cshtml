@@ -1,0 +1,25 @@
+﻿@model MayaFoods.Models.Product
+
+@{
+    ViewData["Title"] = "Product - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create a New Product</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Origincountry)
+    @Html.EditorFor(model => model.Origincountry)
+
+    @Html.LabelFor(model => model.Cost)
+    @Html.EditorFor(model => model.Cost)
+
+    <input type="submit" value="Create" class="btn btn-success" />
+}
+
+@Html.ActionLink("Back to Products List", "Index")

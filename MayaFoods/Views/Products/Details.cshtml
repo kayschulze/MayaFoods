@@ -1,0 +1,17 @@
+﻿@model MayaFoods.Models.Product
+
+<html>
+<head>
+    <title>Maya's Specialty Foods - Product Details</title>
+</head>
+
+<body>
+    <h2>Product Details</h2>
+    <hr />
+    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    @Html.DisplayNameFor(model => model.Origincountry): @Html.DisplayFor(model => model.Origincountry)
+    @Html.DisplayNameFor(model => model.Cost): @Html.DisplayFor(model => model.Cost)
+
+    <p>@Html.ActionLink("Back to Products List", "Index")</p>>
+</body>
+</html>
