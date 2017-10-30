@@ -8,10 +8,12 @@
 <body>
     <h2>Product Details</h2>
     <hr />
-    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
-    @Html.DisplayNameFor(model => model.Origincountry): @Html.DisplayFor(model => model.Origincountry)
-    @Html.DisplayNameFor(model => model.Cost): @Html.DisplayFor(model => model.Cost)
+    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<br />
+    @Html.DisplayNameFor(model => model.Origincountry): @Html.DisplayFor(model => model.Origincountry)<br />
+    @Html.DisplayNameFor(model => model.Cost): @Html.DisplayFor(model => model.Cost)<br /><br />
 
-    <p>@Html.ActionLink("Back to Products List", "Index")</p>>
+    @Html.ActionLink("Add a Review", "Create", "Reviews", new { id = Model.ProductId })
+
+    <p>@Html.ActionLink("Back to Products List", "Index")</p>
 </body>
 </html>

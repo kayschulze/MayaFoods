@@ -10,6 +10,9 @@ namespace MayaFoods.Models
         public IQueryable<Review> Reviews
         { get { return db.Reviews; } }
 
+        public IQueryable<Product> Products
+        { get { return db.Products; } }
+
         public Review Save(Review review)
         {
             db.Reviews.Add(review);

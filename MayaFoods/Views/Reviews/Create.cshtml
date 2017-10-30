@@ -20,9 +20,8 @@
     @Html.EditorFor(model => model.Rating)
 
     @Html.LabelFor(model => model.ProductId)
-    @Html.EditorFor(model => model.ProductId)
+    @Html.DropDownList("ProductId")
 
     <input type="submit" value="Create" class="btn btn-success" />
 }
 
-@Html.ActionLink("Back to Products List", "Index")

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MayaFoods.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -36,6 +37,7 @@ namespace MayaFoods.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name");
             return View();
         }
 
