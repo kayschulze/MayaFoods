@@ -17,7 +17,7 @@ namespace MayaFoods.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySql(@"Server=localhost;Port=3306;database=mayafoods;uid=root;pwd=root;");
+            options.UseMySql(@"Server=localhost;Port=8889;database=mayafoods;uid=root;pwd=root;");
         }
 
         public MayaAdminDbContext(DbContextOptions<MayaAdminDbContext> options)

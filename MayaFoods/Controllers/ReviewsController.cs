@@ -43,6 +43,12 @@ namespace MayaFoods.Controllers
             return Json(MyNewReview);
         }
 
+        //public IActionResult CreateReview()
+        //{
+        //    ViewBag.thisProduct = reviewRepo.Products;
+        //    return View();
+        //}
+
         public IActionResult CreateReview()
         {
             ViewBag.thisProduct = reviewRepo.Products;
@@ -50,10 +56,10 @@ namespace MayaFoods.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult CreateReview(Review review)
+        public IActionResult CreateReview(Review review)
         {
             reviewRepo.Save(review);
-            return PartialView("Index");
+            return RedirectToAction("Details", "Products", new { id = review.ProductId });
         }
 
         public IActionResult Edit(int id)

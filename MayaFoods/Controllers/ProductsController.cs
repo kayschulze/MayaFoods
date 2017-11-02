@@ -31,6 +31,7 @@ namespace MayaSpecialtyFoods.Controllers
 
         public IActionResult Details(int id)
         {
+            ViewBag.thisProduct = productRepo.Products;
             var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
             return View(thisProduct);
         }
