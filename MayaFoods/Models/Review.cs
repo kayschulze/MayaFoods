@@ -17,9 +17,8 @@ namespace MayaFoods.Models
 
         public Review() { }
 
-        public Review(int reviewid, string author, string contentbody, int rating, int productid)
+        public Review(string author, string contentbody, int rating, int productid)
         {
-            ReviewId = reviewid;
             Author = author;
             ContentBody = contentbody;
             Rating = rating;

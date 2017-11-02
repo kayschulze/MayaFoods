@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Maya's Specialty Foods - Product Details</title>
+
 </head>
 
 <body>
@@ -12,7 +13,11 @@
     @Html.DisplayNameFor(model => model.Origincountry): @Html.DisplayFor(model => model.Origincountry)<br />
     @Html.DisplayNameFor(model => model.Cost): @Html.DisplayFor(model => model.Cost)<br /><br />
 
-    @Html.ActionLink("Add a Review", "Create", "Reviews", new { id = Model.ProductId })
+    <div class="create-review"></div>
+
+    <h2>Or this ... Add a Product Review</h2>
+
+    <div id="newProductReviewResult"></div>
 
     <p>@Html.ActionLink("Back to Products List", "Index")</p>
 </body>
