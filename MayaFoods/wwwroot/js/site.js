@@ -27,4 +27,23 @@
     
                 });
             });
+
+            $('.display-last-three-products').click(function() {
+                $.ajax({
+                    url: '@Url.Action("DisplayLastThreeProducts")'
+                    type: 'GET',
+                    data: $(this).serialize(),
+                    dataType: 'html',
+
+                    success: function(result) {
+                        var stringResult = '<ul>';
+                        for (var i = 0; i < result.length; i++) {
+                            stringResult += '<li>' + result.name + '</li>';
+                        }
+                        stringResult += '</ul>';
+
+                        $('#lastThreeProductsResult').html(stringResult);
+                    }
+                }
+            });
         });

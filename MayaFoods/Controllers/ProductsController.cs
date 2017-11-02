@@ -61,7 +61,7 @@ namespace MayaSpecialtyFoods.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
             return View(thisProduct);
@@ -73,6 +73,12 @@ namespace MayaSpecialtyFoods.Controllers
             Product thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
             productRepo.Remove(thisProduct);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult DisplayLastThreeProducts()
+        {
+            var lastThreeProductsList = productRepo.Products.Take(3);
+            return Json(lastThreeProductsList);
         }
     }
 }

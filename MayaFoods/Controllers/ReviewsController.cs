@@ -88,7 +88,7 @@ namespace MayaFoods.Controllers
         {
             Review thisReview = reviewRepo.Reviews.FirstOrDefault(x => x.ReviewId == id);
             reviewRepo.Remove(thisReview);
-            return RedirectToAction("Index");
+            return View(thisReview);
         }
     }
 }
