@@ -13,4 +13,18 @@
                     }
                 });
             });
+
+            $('#edit-review').submit(function (event) {
+                event.preventDefault();   
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    success: function(result) {
+                        console.log(result.author);
+                        $("#author").html("Edit review by: " + result.author);
+                    }
+    
+                });
+            });
         });

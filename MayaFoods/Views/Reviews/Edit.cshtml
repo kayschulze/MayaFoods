@@ -7,11 +7,11 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <h2>Edit</h2>
+    <h2>Edit Review</h2>
     <hr />
 
-    <h4>Edit this Review: @Html.DisplayFor(model => model.Author)</h4>
-    @using (Html.BeginForm())
+    <h4 id="author">Edit this Review: @Html.DisplayFor(model => model.Author)</h4>
+    using (Html.BeginForm("Edit", "Reviews", FormMethod.Post, new { id = "edit-review" }))
     {
         @Html.LabelFor(model => model.Author)
         @Html.EditorFor(model => model.Author)
@@ -22,8 +22,8 @@
         @Html.LabelFor(model => model.Rating)
         @Html.EditorFor(model => model.Rating)
 
-        @Html.LabelFor(model => model.ProductId)
-        @Html.EditorFor(model => model.ProductId)
+        @Html.HiddenFor(model => model.ProductId)
+        @Html.HiddenFor(model => model.ReviewId)
 
         <input type="submit" value="Save" class="btn btn-success" />
     }
@@ -32,5 +32,5 @@ else
 {
     <h2>I'm sorry, but you don't have access to this function.</h2>
 }
-
-@Html.ActionLink("Back to Products List", "Index")
+<p id="result">RESULT WILL BE HERE</p>
+@Html.ActionLink("Back to Products List", "Index", "Products")

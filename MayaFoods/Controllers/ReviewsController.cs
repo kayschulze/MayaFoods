@@ -72,7 +72,9 @@ namespace MayaFoods.Controllers
         public IActionResult Edit(Review review)
         {
             reviewRepo.Edit(review);
-            return RedirectToAction("Index");
+            //return RedirectToAction("Details", "Products", new { id = review.ProductId }); 
+            //return RedirectToAction("Index", "Products");
+            return Json(review);
         }
 
         public ActionResult Delete(int id)
