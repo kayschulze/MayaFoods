@@ -1,22 +1,25 @@
-﻿@model IEnumerable<MayaFoods.Models.Product>
+﻿@model IEnumerable<MayaFoods.Models.Review>
 
 @{
-    ViewData["Title"] = "Product";
+    ViewData["Title"] = "Review";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Enjoy These Products Maya Has For You</h2>
+<h2>Reviews</h2>
 <hr />
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Author)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Origincountry)
+            @Html.DisplayNameFor(model => model.ContentBody)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cost)
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+		<th>
+            @Html.DisplayNameFor(model => model.ProductId)
         </th>
         <th></th>
     </tr>
@@ -25,13 +28,16 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => listProduct.Name)
+                @Html.DisplayFor(modelItem => listProduct.Author)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => listProduct.Origincountry)
+                @Html.DisplayFor(modelItem => listProduct.ContentBody)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => listProduct.Cost)
+                @Html.DisplayFor(modelItem => listProduct.Rating)
+            </td>
+		    <td>
+                @Html.DisplayFor(modelItem => listProduct.ProductId)
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })
