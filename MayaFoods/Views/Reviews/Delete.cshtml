@@ -8,9 +8,10 @@
     <h2>Are you sure you want to delete this?</h2>
     <hr />
 
-    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Author)
-    @Html.DisplayNameFor(model => model.Origincountry): @Html.DisplayFor(model => model.ContentBody)
-    @Html.DisplayNameFor(model => model.Cost): @Html.DisplayFor(model => model.Rating)
+    @Html.DisplayNameFor(model => model.Author): @Html.DisplayFor(model => model.Author)<br>
+    @Html.DisplayNameFor(model => model.ContentBody): @Html.DisplayFor(model => model.ContentBody)<br>
+    @Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)<br>
+    @Html.DisplayNameFor(model => model.ProductId): @Html.DisplayFor(model => model.ProductId)<br>
 
     @using(Html.BeginForm())
     {
