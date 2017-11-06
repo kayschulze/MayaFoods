@@ -25,6 +25,8 @@ namespace MayaFoods.Models
             Origincountry = origincountry;
         }
 
+        
+
         public override bool Equals(System.Object otherProduct)
         {
             if (!(otherProduct is Product))

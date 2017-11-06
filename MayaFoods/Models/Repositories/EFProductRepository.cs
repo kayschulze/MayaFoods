@@ -22,6 +22,9 @@ namespace MayaFoods.Models
         public IQueryable<Product> Products
         { get { return db.Products; } }
 
+        public IQueryable<Product> GetLastProducts
+        { get { return db.Products.Take(3); } }
+
         public Product Save(Product product)
         {
             db.Products.Add(product);
@@ -41,5 +44,6 @@ namespace MayaFoods.Models
             db.Products.Remove(product);
             db.SaveChanges();
         }
+
     }
 }

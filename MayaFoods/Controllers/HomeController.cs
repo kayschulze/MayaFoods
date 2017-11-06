@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MayaFoods.Models;
 
 namespace MayaFoods.Controllers
 {
     public class HomeController : Controller
     {
+        private IProductRepository productRepo;
+
         public IActionResult Index()
         {
-            return View();
+            return View(productRepo.Products.Take(3));
         }
 
         public IActionResult About()

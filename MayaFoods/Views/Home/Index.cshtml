@@ -1,4 +1,41 @@
-﻿@{
+﻿@model IEnumerable<MayaFoods.Models.Product>
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<h2>Enjoy These Products Maya Has For You</h2>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Origincountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var listProduct in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => listProduct.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => listProduct.Origincountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => listProduct.Cost)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })
+            </td>
+        </tr>
+    }
+</table>
 
