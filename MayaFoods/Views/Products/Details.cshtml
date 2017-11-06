@@ -1,4 +1,9 @@
 ﻿@model MayaFoods.Models.Product
+@using MayaFoods.Models;
+@{
+    Review newProductReview = new MayaFoods.Models.Review();
+    newProductReview.ProductId = Model.ProductId;
+}
 
 <html>
 <head>
@@ -12,13 +17,13 @@
     @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<br />
     @Html.DisplayNameFor(model => model.Origincountry): @Html.DisplayFor(model => model.Origincountry)<br />
     @Html.DisplayNameFor(model => model.Cost): @Html.DisplayFor(model => model.Cost)<br /><br />
-
-    <div class="create-review"></div>
-
-    <h2>Or this ... Add a Product Review</h2>
+		
+	@Html.Partial("~/Views/Reviews/CreateReview.cshtml", newProductReview)
 
     <div id="newProductReviewResult"></div>
 
+    <p>@Html.ActionLink("Read Reviews", "Index", "Reviews")</p>
+		
     <p>@Html.ActionLink("Back to Products List", "Index")</p>
 </body>
 </html>

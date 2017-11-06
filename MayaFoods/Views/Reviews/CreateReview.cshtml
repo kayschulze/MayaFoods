@@ -8,7 +8,7 @@
 <h2>Review this Product</h2>
 <hr />
 
-@using (Html.BeginForm("CreateReview", "Product"))
+@using (Html.BeginForm("CreateReview", "Reviews"))
 {
     @Html.LabelFor(model => model.Author)
     @Html.EditorFor(model => model.Author)
@@ -19,8 +19,7 @@
     @Html.LabelFor(model => model.Rating)
     @Html.EditorFor(model => model.Rating)
 
-    @Html.LabelFor(model => model.ProductId)
-    @Html.HiddenFor(model => "@ViewBag.thisProduct.ProductId")
+    @Html.HiddenFor(model => model.ProductId)
 
     <input type="submit" value="Create" class="btn btn-success" />
 }
