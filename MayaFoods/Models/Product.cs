@@ -25,7 +25,13 @@ namespace MayaFoods.Models
             Origincountry = origincountry;
         }
 
-        
+        //public IEnumerable<Product> GetLastThree(IEnumerable<Product> currentlist)
+        //{
+        //    IEnumerable<Product> lastthree;
+        //    lastthree = currentlist.Take(3);
+
+        //    return lastthree; 
+        //}
 
         public override bool Equals(System.Object otherProduct)
         {

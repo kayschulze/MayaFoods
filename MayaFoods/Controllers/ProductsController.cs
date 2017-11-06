@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -24,9 +25,17 @@ namespace MayaSpecialtyFoods.Controllers
             }
         }
 
-        public IActionResult Index()
+        public IActionResult AllProducts()
         {
             return View(productRepo.Products.ToList());
+        }
+
+        public IActionResult Index()
+        {
+            var productList = productRepo.Products.ToList();
+            IEnumerable<Product> lastthree = productList.Take(3);
+
+            return View(lastthree);
         }
 
         public IActionResult Details(int id)
@@ -73,12 +82,6 @@ namespace MayaSpecialtyFoods.Controllers
             Product thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
             productRepo.Remove(thisProduct);
             return RedirectToAction("Index");
-        }
-
-        public IActionResult DisplayLastThreeProducts()
-        {
-            var lastThreeProductsList = productRepo.Products.Take(3);
-            return Json(lastThreeProductsList);
         }
     }
 }
