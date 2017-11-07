@@ -32,10 +32,15 @@ namespace MayaSpecialtyFoods.Controllers
 
         public IActionResult Index()
         {
-            var productList = productRepo.Products.ToList();
-            IEnumerable<Product> lastthree = productList.Take(3);
+            Product newProduct = new Product();
+            var lastthree = newProduct.GetLastThree();
+            var bestthree = newProduct.GetBestThree();
 
-            return View(lastthree);
+            Dictionary<string, IEnumerable<Product>> frontPage = new Dictionary<string, IEnumerable<Product>>();
+            frontPage.Add("last", lastthree);
+            frontPage.Add("best", bestthree);
+
+            return View(frontPage);
         }
 
         public IActionResult Details(int id)
