@@ -7,44 +7,40 @@
 
 <h2>Check Out Maya's Newest Products</h2>
 <hr />
-<table class="table">
     @foreach (var listProduct in Model["last"])
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Origincountry)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Cost)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })
-            </td>
-        </tr>
+	    <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>@Html.DisplayFor(modelItem => listProduct.Name)</h3>
+		        </div>
+		        <div class="panel-body">
+                    <p>@Html.DisplayFor(modelItem => listProduct.Origincountry)</p>
+                    <p>@Html.DisplayFor(modelItem => listProduct.Cost)</p>
+			        <p>@Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })</p>
+		        </div>
+	        </div>
+        </div>
+
     }
-</table>
 
 <h2>Enjoy Maya's Most Popular Products</h2>
 <table class="table">
     @foreach (var listProduct in Model["best"])
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Origincountry)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Cost)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })
-            </td>
-        </tr>
+	    <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>@Html.DisplayFor(modelItem => listProduct.Name)</h3>
+                </div>
+                <div class="panel-body">
+                    <p>@Html.DisplayFor(modelItem => listProduct.Origincountry)</p>
+                    <p>@Html.DisplayFor(modelItem => listProduct.Cost)</p>
+				    <p>@Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })</p>
+                </div>
+            </div>
+        </div>
+                
     }
 </table>
 <p>
