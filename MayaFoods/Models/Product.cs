@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace MayaFoods.Models
 {
@@ -8,6 +10,8 @@ namespace MayaFoods.Models
 
     public class Product
     {
+        MayaAdminDbContext db = new MayaAdminDbContext();
+
         [Key]
         public int ProductId { get; set; }
         public string Name { get; set; }
@@ -25,7 +29,46 @@ namespace MayaFoods.Models
             Origincountry = origincountry;
         }
 
-        
+        public double AverageRating()
+        {
+            double ratingAverage = 0;
+            double numberOfReviews = this.Reviews.Count();
+            double totalReviewScore = 0;
+
+            foreach (var review in Reviews)
+            {
+                totalReviewScore += review.Rating;
+            }
+
+            ratingAverage = totalReviewScore / numberOfReviews;
+
+            return ratingAverage;
+        }
+
+        public IEnumerable<Product> GetLastThree()
+        {
+            IEnumerable<Product> lastthree;
+            lastthree = db.Products
+                          .Include(p => p.Reviews)
+                          .OrderByDescending(p => p.ProductId)
+                          .Take(3)
+                          .ToList();
+
+            return lastthree; 
+        }
+
+        public IEnumerable<Product> GetBestThree()
+        {
+            IEnumerable<Product> bestthree;
+            bestthree = db.Products
+                          .Include(p => p.Reviews)
+                          .OrderByDescending(p => p.ProductId)
+                          .Take(3)
+                          .ToList();
+
+            return bestthree;
+        }
+
 
         public override bool Equals(System.Object otherProduct)
         {

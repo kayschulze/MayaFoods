@@ -1,51 +1,51 @@
-﻿@model IEnumerable<MayaFoods.Models.Product>
+﻿@model Dictionary<string, IEnumerable<MayaFoods.Models.Product>>
 
 @{
     ViewData["Title"] = "Product";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Enjoy These Products Maya Has For You</h2>
+<h2>Check Out Maya's Newest Products</h2>
 <hr />
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Origincountry)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cost)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var listProduct in Model)
+    @foreach (var listProduct in Model["last"])
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Origincountry)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => listProduct.Cost)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })
-            </td>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = listProduct.ProductId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = listProduct.ProductId })
-                </td>
-            }
-        </tr>
+	    <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>@Html.DisplayFor(modelItem => listProduct.Name)</h3>
+		        </div>
+		        <div class="panel-body">
+                    <p>@Html.DisplayFor(modelItem => listProduct.Origincountry)</p>
+                    <p>@Html.DisplayFor(modelItem => listProduct.Cost)</p>
+			        <p>@Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })</p>
+		        </div>
+	        </div>
+        </div>
+
+    }
+
+<h2>Enjoy Maya's Most Popular Products</h2>
+<table class="table">
+    @foreach (var listProduct in Model["best"])
+    {
+	    <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>@Html.DisplayFor(modelItem => listProduct.Name)</h3>
+                </div>
+                <div class="panel-body">
+                    <p>@Html.DisplayFor(modelItem => listProduct.Origincountry)</p>
+                    <p>@Html.DisplayFor(modelItem => listProduct.Cost)</p>
+				    <p>@Html.ActionLink("Details", "Details", new { id = listProduct.ProductId })</p>
+                </div>
+            </div>
+        </div>
+                
     }
 </table>
 <p>
     @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+	@Html.ActionLink("View All Products", "AllProducts")
 </p>
